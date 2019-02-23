@@ -1,4 +1,4 @@
-# A Beary Good Clicky Game
+# A Beary Good Clicky Game :bear:
 
 A demo of the <b>BEST BEAR GAME EVER</b> can be found [here](https://limitless-earth-55794.herokuapp.com/)!
 
@@ -10,4 +10,4 @@ If you have ever wanted to play a simple memory game loaded with cute bear pictu
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Screenshot
-![ScreenShot](https://raw.github.com/kkopp/bearygoodclickygame/master/public/screencap.png)
+![screenshot](/public/screencap.png)
