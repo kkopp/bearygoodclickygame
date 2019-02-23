@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "image": "/images/bear1.jpg"
+    },
+    {
+        "id": 2,
+        "image": "/images/bear2.jpg"
+    },
+    {
+        "id": 3,
+        "image": "/images/bear3.jpg"
+    },
+    {
+        "id": 4,
+        "image": "/images/bear4.jpg"
+    },
+    {
+        "id": 5,
+        "image": "/images/bear5.jpg"
+    },
+    {
+        "id": 6,
+        "image": "/images/bear6.png"
+    },
+    {
+        "id": 7,
+        "image": "/images/bear7.jpg"
+    },
+    {
+        "id": 8,
+        "image": "/images/bear8.jpg"
+    },
+    {
+        "id": 9,
+        "image": "/images/bear9.jpg"
+    },
+    {
+        "id": 10,
+        "image": "/images/bear10.jpg"
+    },
+    {
+        "id": 11,
+        "image": "/images/bear11.jpg"
+    },
+    {
+        "id": 12,
+        "image": "/images/bear12.jpg"
+    },
+    {
+        "id": 13,
+        "image": "/images/bear13.jpg"
+    },
+      {
+        "id": 14,
+        "image": "/images/bear14.jpg"
+    },
+      {
+        "id": 15,
+        "image": "/images/bear15.jpg"
+    },
+      {
+        "id": 16,
+        "image": "/images/bear16.jpg"
+    }
+]
