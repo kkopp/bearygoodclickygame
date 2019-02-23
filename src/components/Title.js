@@ -1,11 +1,12 @@
 import React from 'react';
+import '../index.css';
 
 
 const Title = () => {
     return (
         <div>
-        <h1>Bears are Everywhere!</h1>
-        <p>Click on an image to earn points, but don't click on one more than once!</p>
+            <div className="titleText">Bears are Everywhere!</div>
+            <span className="titleParagraph">Click on an image to earn points, but don't click on one more than once!</span>
         </div>
     )
 }

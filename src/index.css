@@ -6,6 +6,25 @@
   padding: 10px;
 }
 
+.navText {
+  font-size: 30px;
+  font-family: 'Delius Unicase', cursive;
+}
+
+.titleText {
+  font-size: 50px;
+  font-family: 'Delius Unicase', cursive;
+}
+
+.titleParagraph {
+  font-size: 20px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.scoreColor {
+  color: #76a9ea;
+}
+
 @keyframes shakeScreen {
   0% {
     transform:translateX(0);
@@ -43,5 +62,5 @@
 }
 
 .shakeScreen {
-  animation:shakeScreen 1s;
+  animation:shakeScreen .75s;
 }

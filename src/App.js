@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { MDBContainer,MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
 import GameCard from './components/GameCard.js';
 import Title from './components/Title.js';
 import Nav from './components/NavBar.js';
@@ -13,9 +13,9 @@ class App extends Component {
     curScore: 0,
     bears: bears,
     lastSelectedIndex: null,
-    weLost:false
+    weLost: false
   };
-  
+
   componentDidMount() {
 
   }
@@ -29,36 +29,31 @@ class App extends Component {
   }
 
   selectCard = id => {
-    const  newBears = this.shuffleCards(this.state.bears);
-   
+    const newBears = this.shuffleCards(this.state.bears);
 
-      if(id === this.state.lastSelectedIndex) {
-        //user just lost
-        this.setState ( {
-          message: "You guessed incorrectly!",
-          topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
-          curScore: 0,
-          bears: newBears,
-          weLost:true,
-          lastSelectedIndex:null
-        });;
-      }
-      else {
-        //user continues playing and winning
-
-        this.setState ( {
+    if (id === this.state.lastSelectedIndex) {
+      //user just lost
+      this.setState({
+        message: "You guessed incorrectly!",
+        topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
+        curScore: 0,
+        bears: newBears,
+        weLost: true,
+        lastSelectedIndex: null
+      });
+    }
+    else {
+      //user continues playing and winning
+      this.setState({
         message: "You guessed correctly!",
         curScore: this.state.curScore + 1,
         bears: newBears,
-        lastSelectedIndex:id
-      });;
+        lastSelectedIndex: id,
+        weLost: false
+      });
     }
-      
+  }
 
-    }
-
-      
-  
   render() {
     console.log(this.state)
     return (
