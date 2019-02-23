@@ -12,7 +12,8 @@ class App extends Component {
     topScore: 0,
     curScore: 0,
     bears: bears,
-    unselected: bears
+    unselected: bears,
+    weLost:false
   };
   
   componentDidMount() {
@@ -35,7 +36,8 @@ class App extends Component {
         topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
         curScore: 0,
         bears: bears,
-        unselected: bears
+        unselected: bears,
+        weLost:true,
 
       })
     } else {
@@ -50,16 +52,15 @@ class App extends Component {
     }
     this.shuffleCards(bears)
   }
-
   render() {
     return (
       <React.Fragment>
         <Nav message={this.state.message} topScore={this.state.topScore} curScore={this.state.curScore} />
-        <MDBContainer className="mt-5">
+        <MDBContainer className="mt-5" className={this.state.weLost ? 'shakeScreen' : ''}>
           <MDBRow>
             <MDBCol md="12">
               <MDBCard
-                color="mdb-color lighten-2"
+                color="mdb-color #0288d1 light-blue darken-3"
                 text="white"
                 className="text-center"
               >
