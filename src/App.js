@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { MDBContainer,MDBRow, MDBCol, MDBCard, MDBCardBody } from 'mdbreact';
 import GameCard from './components/GameCard.js';
 import Title from './components/Title.js';
@@ -12,7 +12,7 @@ class App extends Component {
     topScore: 0,
     curScore: 0,
     bears: bears,
-    unselected: bears,
+    lastSelectedIndex: null,
     weLost:false
   };
   
@@ -25,38 +25,46 @@ class App extends Component {
       let j = Math.floor(Math.random() * (i + 1));
       [cards[i], cards[j]] = [cards[j], cards[i]];
     }
+    return cards;
   }
 
   selectCard = id => {
-    const findId = this.state.unselected.find(item => item.id === id);
+    const  newBears = this.shuffleCards(this.state.bears);
+   
 
-    if (findId === undefined) {
-      this.setState({
-        message: "You guessed incorrectly!",
-        topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
-        curScore: 0,
-        bears: bears,
-        unselected: bears,
-        weLost:true,
+      if(id === this.state.lastSelectedIndex) {
+        //user just lost
+        this.setState ( {
+          message: "You guessed incorrectly!",
+          topScore: (this.state.curScore > this.state.topScore) ? this.state.curScore : this.state.topScore,
+          curScore: 0,
+          bears: newBears,
+          weLost:true,
+          lastSelectedIndex:null
+        });;
+      }
+      else {
+        //user continues playing and winning
 
-      })
-    } else {
-      const newBears = this.state.unselected.filter(item => item.id !== id);
-
-      this.setState({
+        this.setState ( {
         message: "You guessed correctly!",
         curScore: this.state.curScore + 1,
-        bears: bears,
-        unselected: newBears
-      })
+        bears: newBears,
+        lastSelectedIndex:id
+      });;
     }
-    this.shuffleCards(bears)
-  }
+      
+
+    }
+
+      
+  
   render() {
+    console.log(this.state)
     return (
-      <React.Fragment>
+      <Fragment>
         <Nav message={this.state.message} topScore={this.state.topScore} curScore={this.state.curScore} />
-        <MDBContainer className="mt-5" className={this.state.weLost ? 'shakeScreen' : ''}>
+        <MDBContainer className={`${this.state.weLost ? 'shakeScreen' : ''} mt-5`}>
           <MDBRow>
             <MDBCol md="12">
               <MDBCard
@@ -72,11 +80,11 @@ class App extends Component {
           </MDBRow>
           <MDBRow>
             {this.state.bears.map(bear => (
-              <GameCard id={bear.id} image={bear.image} selectCard={this.selectCard} curScore={this.state.curScore} />
+              <GameCard key={bear.id} id={bear.id} image={bear.image} selectCard={this.selectCard} curScore={this.state.curScore} />
             ))}
           </MDBRow>
         </MDBContainer>
-      </React.Fragment>
+      </Fragment>
 
     );
   }
